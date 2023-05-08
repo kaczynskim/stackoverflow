@@ -10,31 +10,31 @@ namespace StackOverflow
         [GlobalSetup]
         public void GlobalSetup()
         {
-            a = Program.GetValues(20_000);
+            a = DataInitializer.GetValues(20_000);
         }
 
         [Benchmark]
         public void Eager()
         {
-            Program.Eager(a);
+            DistinctValuesFinder.FindDistinctValuesEager(a);
         }
 
         [Benchmark]
         public void Split()
         {
-            Program.Split(a);
+            DistinctValuesFinder.FindDistinctValuesSplit(a);
         }
 
         [Benchmark]
         public void WithoutLinq()
         {
-            Program.WithoutLinq(a);
+            DistinctValuesFinder.FindDistinctValuesWithoutLinq(a);
         }
 
         [Benchmark(Baseline = true)]
         public void OnlyUnion()
         {
-            Program.GetDistinctValuesUnionOnly(a);
+            DistinctValuesFinder.GetDistinctValuesUnionOnly(a);
         }
     }
 }
