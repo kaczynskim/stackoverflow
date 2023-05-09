@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 
@@ -44,6 +45,34 @@ namespace StackOverflow
             var result = distincts.ToList();
 
             return result;
+        }
+
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        public static IList<int> FindDistinctValues_SelectMany(int[][] arrays)
+        {
+            var distincts = GetDistinctValues_SelectMany(arrays);
+
+            var result = distincts.ToList();
+
+            return result;
+        }
+
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        public static IList<int> FindDistincValuesUnionOnly(int[][] arrays)
+        {
+            var distincts = GetDistinctValuesUnionOnly(arrays);
+
+            var result = distincts.ToList();
+
+            return result;
+
+        }
+
+
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        private static IEnumerable<int> GetDistinctValues_SelectMany(int[][] arrays)
+        {
+            return arrays.SelectMany(x => x).Distinct();
         }
 
         [MethodImpl(MethodImplOptions.NoInlining)]
@@ -128,6 +157,5 @@ namespace StackOverflow
 
             return distincted;
         }
-
     }
 }

@@ -34,7 +34,14 @@ namespace StackOverflow
         [Benchmark(Baseline = true)]
         public void OnlyUnion()
         {
-            DistinctValuesFinder.GetDistinctValuesUnionOnly(a);
+            DistinctValuesFinder.FindDistincValuesUnionOnly(a);
         }
+
+        [Benchmark]
+        public void SelectMany()
+        {
+            DistinctValuesFinder.FindDistinctValues_SelectMany(a);
+        }
+
     }
 }

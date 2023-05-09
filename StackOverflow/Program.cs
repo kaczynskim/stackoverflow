@@ -11,7 +11,7 @@ namespace StackOverflow
         static void Main(string[] args)
         {
             //uncomment to run benchmark
-            //var summary = BenchmarkRunner.Run<Benchmark>();
+            var summary = BenchmarkRunner.Run<Benchmark>();
 
             Console.ReadLine();
 
