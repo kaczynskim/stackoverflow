@@ -84,10 +84,7 @@ namespace StackOverflow
             {
                 for (int j = 0; j < arrays[i].Length; j++)
                 {
-                    if (hashSet.Contains(arrays[i][j]) == false)
-                    {
-                        hashSet.Add(arrays[i][j]);
-                    }
+                    hashSet.Add(arrays[i][j]);
                 }
             }
 
